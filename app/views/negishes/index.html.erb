@@ -2,10 +2,17 @@
 
 <% @negishes.each do |c| %>
 
-<table class="table table-striped">
-	<thead>
-		<tr><th>Title</th><th>Body</th><th>Image</th></tr>
+<table class="table table-bordered border-primary table-hover table-sm posts_table">
+	<thead class="thead-link">
+		<tr>
+		<th scope="col">Title</th>
+		<th scope="col">Body</th>
+		<th scope="col">Image</th>
+		<th scope="col"></th>
+		<th scope="col"></th>
+		</tr>
 	</thead>
+
 	<tbody>
 		<tr>
 
@@ -18,7 +25,8 @@
 				<%=attachment_image_tag c, :image, format: 'jpeg', size:'100x100', class:"profile_image", fallback:"no-image.jpg", size:'100x100' %>
 				<% end %></td>
 
-			<td><%=link_to '削除', negish_path(c.id), method: :delete, "data-confirm" => "本当に削除しますか？",class:"btn btn-primary btn-sm active" %></td>
+			<td><%=link_to '削除', negish_path(c.id), method: :delete, "data-confirm" => "本当に削除しますか？",class:"btn btn-primary btn-lg active" %></td>
+			<td></td>
 
 		</tr>
 	</tbody>
@@ -28,4 +36,6 @@
 
 <% end %>
 
-<%=link_to 'Topへ', root_path,class:"btn btn-warning btn-lg active" %>
+<%=link_to 'Topへ', root_path,class:"btn btn-warning btn-lg active" %><br><br>
+
+<%=link_to '新規投稿',  new_negish_path,class:"btn btn-warning btn-lg active"%><br>
